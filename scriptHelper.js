@@ -71,16 +71,14 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 }
     
 async function myFetch() {
-    let planetsReturned = await fetch('https://handlers.education.launchcode.org/static/planets.json');
-
-    planetsReturned = await fetch().then( function(response) {
+    let planetsReturned = await fetch('https://handlers.education.launchcode.org/static/planets.json'); 
         const data = planetsReturned.json();
         console.log(data);
-        return data:
-    });
+        return data;
+}
 
     return planetsReturned;
-} 
+
 
 function pickPlanet(planets) {
     let randomIndex = Math.floor(Math.random() * planets.length);
