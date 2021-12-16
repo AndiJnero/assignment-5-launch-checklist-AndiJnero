@@ -12,10 +12,13 @@ window.addEventListener("load", function() {
 
     list.style.visibility = "hidden";
     
-    let form = document.querySelector("testForm");
-    form.addEventListener("submit", function(event) {
+    let testForm = document.querySelector("testForm");
+    testForm.addEventListener("submit", function(event) {
         formSubmission(document, list, pilot.value, copilot.value, fuelLevel.value, cargoLevel.value);
         
+
+        //After validation, update a list of what is currently ready or not ready for the shuttle launch.
+        //Flags  whether the shuttle is ready for launch & by using the DOM to update the CSS
         if (validateInput(pilot.value) == "Empty" || validateInput(copilot.value) == "Empty" || validateInput(fuelLevel.value) == "Empty" || validateInput(cargoLevel.value) == "Empty") {
             list.style.visibility = "hidden";
             alert( "All fields required"); 
@@ -43,9 +46,9 @@ window.addEventListener("load", function() {
    }).then(function () {
        console.log(listedPlanets);
        // Below this comment call the appropriate helper functions to pick a planet fom the list of planets and add that information to your destination.
-       let pickedPlanet = pickPlanet(listedPlanets);
+       let pickedPlanets = pickPlanet(listedPlanets);
 
-       addDestinationInfo(window.document, pickedPlanet.name, pickedPlanet.diameter, pickedPlanet.star, pickedPlanet.distance, pickedPlanet.moons, pickedPlanet.imageUrl)
+       addDestinationInfo(window.document, pickedPlanets.name, pickedPlanets.diameter, pickedPlanets.star, pickedPlanets.distance, pickedPlanets.moons, pickedPlanets.imageUrl)
    })
    
 });
